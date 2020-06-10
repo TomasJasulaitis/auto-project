@@ -17,9 +17,6 @@ class TruckController extends Controller
      */
     public function index()
     {
-
-
-
         $order = request('orderBy', 'desc');
         $sort = request('sort', 'trucks.id');
 
@@ -65,7 +62,6 @@ class TruckController extends Controller
             $data->appends('search', request('search'));
         }
 
-
         return view('pages.trucks.index', [
             'data' => $data,
         ]);
@@ -105,7 +101,6 @@ class TruckController extends Controller
         if ($request->get('owner_count')) {
             $data['owner_count'] = $request->get('owner_count');
         }
-
         $truck = Truck::create($data);
 
         if ($request->get('full_name')) {
